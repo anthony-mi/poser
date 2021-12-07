@@ -18,8 +18,8 @@
                     <td>{{position.id}}</td>
                     <td>{{position.exchange.name}}</td>
                     <td>{{position.base.symbol}}/{{position.quote.symbol}}</td>
-                    <td>{{position.openedAt}}</td>
-                    <td>{{position.closedAt}}</td>
+                    <td>{{position.openedAt | date}}</td>
+                    <td>{{position.closedAt | date}}</td>
                     <td>{{position.openPrice}}</td>
                     <td>{{position.closePrice}}</td>
                     <td>{{position.currentPrice}}</td>
