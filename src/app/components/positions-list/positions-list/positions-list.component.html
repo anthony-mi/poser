@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="table-wrapper">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Exchange</th>
+                    <th>Pair</th>
+                    <th>Opened at</th>
+                    <th>Closed at</th>
+                    <th>Open price</th>
+                    <th>Close price</th>
+                    <th>Current price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let position of positions">
+                    <td>{{position.id}}</td>
+                    <td>{{position.exchange.name}}</td>
+                    <td>{{position.base.symbol}}/{{position.quote.symbol}}</td>
+                    <td>{{position.openedAt}}</td>
+                    <td>{{position.closedAt}}</td>
+                    <td>{{position.openPrice}}</td>
+                    <td>{{position.closePrice}}</td>
+                    <td>{{position.currentPrice}}</td>
+                    <td>
+                        <a class="edit" (click)="requestEdit(position)" style="cursor: pointer;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    </td>
+                    <td>
+                        <a class="delete" (click)="requestRemove(position)" style="cursor: pointer;"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
