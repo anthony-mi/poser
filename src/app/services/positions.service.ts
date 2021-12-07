@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Asset } from 'src/domain/asset';
-import { Exchange } from 'src/domain/exchange';
-import { Position } from 'src/domain/position';
-import { PositionState } from 'src/domain/position-state';
+import { Asset } from 'src/app/domain/asset';
+import { Exchange } from 'src/app/domain/exchange';
+import { Position } from 'src/app/domain/position';
+import { PositionState } from 'src/app/domain/position-state';
+import { of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -38,7 +39,7 @@ export class PositionsService {
         ),
     ];
 
-    get positions() {
-        return this._positions;
+    getPositions() {
+        return of(this._positions);
     }
 }
