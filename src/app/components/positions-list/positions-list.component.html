@@ -24,10 +24,10 @@
                     <td>{{position.closePrice}}</td>
                     <td>{{position.currentPrice}}</td>
                     <td>
-                        <a class="edit" (click)="requestEdit(position)" style="cursor: pointer;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <app-button class="edit" (click)="requestEdit(position)" style="cursor: pointer;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></app-button>
                     </td>
                     <td>
-                        <a class="delete" (click)="requestRemove(position)" style="cursor: pointer;"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <app-button class="delete" (click)="requestRemove(position)" style="cursor: pointer;"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></app-button>
                     </td>
                 </tr>
             </tbody>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Position } from 'src/app/domain/position';
 import { PositionsService } from 'src/app/services/positions.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-positions-list',

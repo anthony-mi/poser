@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Action } from '../../aliases/action';
 import { ButtonComponent} from '../button/button.component';
 import { FormTarget } from './form-target';
 
