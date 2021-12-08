@@ -1,7 +1,7 @@
 export class Exchange {
     constructor(
-        public id: number,
-        public name: string
+        public readonly id: number,
+        public readonly name: string
     ) {
         
     }
