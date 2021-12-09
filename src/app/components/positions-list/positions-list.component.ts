@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs';
+
 import { Position } from 'src/app/domain/position';
 import { PositionsService } from 'src/app/services/positions.service';
-import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-positions-list',
@@ -9,18 +13,20 @@ import { SharedModule } from 'src/app/shared/shared.module';
   styleUrls: ['./positions-list.component.css']
 })
 export class PositionsListComponent implements OnInit {
-  private _positions: Array<Position> = [];
+  positions$!: Observable<Position[]>;
+  selectedPositionId: string = '';
 
-  get positions() {
-    return this._positions;
-  }
+  constructor(
+    private positionsService: PositionsService,
+    private route: ActivatedRoute) { }
 
-  constructor(private positionsService: PositionsService) { }
-
-  ngOnInit(): void {
-    this.positionsService
-      .getPositions()
-      .subscribe(positions => this._positions = positions);
+  ngOnInit() {
+    this.positions$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        this.selectedPositionId = params.get('id')!;
+        return this.positionsService.getPositions();
+      })
+    );
   }
 
   requestEdit(position: Position) {

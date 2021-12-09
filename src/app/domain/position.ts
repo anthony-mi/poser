@@ -4,7 +4,7 @@ import { PositionState } from "./position-state";
 
 export class Position {
     constructor(
-        public readonly id: string,
+        public readonly id: number,
         public readonly exchange: Exchange,
         public readonly base: Asset,
         public readonly quote: Asset,

@@ -3,7 +3,7 @@ import { Asset } from 'src/app/domain/asset';
 import { Exchange } from 'src/app/domain/exchange';
 import { Position } from 'src/app/domain/position';
 import { PositionState } from 'src/app/domain/position-state';
-import { of } from 'rxjs';
+import { map, of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +11,7 @@ import { of } from 'rxjs';
 export class PositionsService {
     _positions = [
         new Position(
-            'c964f5bb-dd4f-46ec-9023-d5e5651a63ff',
+            1,
             new Exchange(1, 'Binance'),
             new Asset(1, 'BTC'),
             new Asset(2, 'USDT'),
@@ -20,7 +20,7 @@ export class PositionsService {
             PositionState.Open
         ),
         new Position(
-            'f1d0c289-5c6b-43a6-92c0-9cdbe4a5fdf0',
+            2,
             new Exchange(2, 'Kuna'),
             new Asset(3, 'ETH'),
             new Asset(2, 'USDT'),
@@ -29,7 +29,7 @@ export class PositionsService {
             PositionState.Open
         ),
         new Position(
-            '6ce3c17c-5b82-42cb-977b-1f93af0ec2c1',
+            3,
             new Exchange(1, 'Binance'),
             new Asset(3, 'ETH'),
             new Asset(1, 'BTC'),
@@ -41,5 +41,10 @@ export class PositionsService {
 
     getPositions() {
         return of(this._positions);
+    }
+
+    getPosition(id: number) {
+        const position = this._positions.find(p => p.id === id)!;
+        return of(position);
     }
 }
