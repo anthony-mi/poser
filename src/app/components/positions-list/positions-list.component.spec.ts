@@ -24,4 +24,10 @@ describe('PositionsListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show expected count of positions', () => {
+    const expectedCountOfPositions = 3;
+    let tbody: HTMLElement = fixture.nativeElement.querySelector('tbody');
+    expect(tbody.childElementCount).toEqual(expectedCountOfPositions);
+  })
 });
