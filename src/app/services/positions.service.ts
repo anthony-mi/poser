@@ -3,7 +3,7 @@ import { Asset } from 'src/app/domain/asset';
 import { Exchange } from 'src/app/domain/exchange';
 import { Position } from 'src/app/domain/position';
 import { PositionState } from 'src/app/domain/position-state';
-import { map, of } from 'rxjs';
+import { of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
