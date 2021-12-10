@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Observable } from 'rxjs';
-
 import { Position } from 'src/app/domain/position';
 import { PositionsService } from 'src/app/services/positions.service';
 
