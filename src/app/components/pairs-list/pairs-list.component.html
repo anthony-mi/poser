@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="table-wrapper">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Pair</th>
+                    <th>Exchange</th>
+                    <th>Price</th>
+                    <th>24h Change</th>
+                    <th>24h High/24h Low</th>
+                    <th>24h Volume</th>
+                    <th>Market Cap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pair of pairs$ | async">
+                    <td>{{pair.base.symbol}}/{{pair.quote.symbol}}</td>
+                    <td>{{pair.exchange.name}}</td>
+                    <td>{{pair.price}}</td>
+                    <td [style]="{color: pair._24hChange > 0 ? 'green' : 'red'}">{{pair._24hChange}}%</td>
+                    <td>{{pair._24hHigh}}/{{pair._24hLow}}</td>
+                    <td>{{pair._24hVolume}}</td>
+                    <td>{{pair.marketCap}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

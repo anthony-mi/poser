@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { PositionsListComponent } from './components/positions-list/positions-list.component';
 import { SharedModule } from './shared/shared.module';
 import { PositionDetailsComponent } from './components/position-details/position-details.component';
+import { PairsListComponent } from './components/pairs-list/pairs-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PositionsListComponent,
-    PositionDetailsComponent
+    PositionDetailsComponent,
+    PairsListComponent
   ],
   imports: [
     BrowserModule,
