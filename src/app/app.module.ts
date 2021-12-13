@@ -7,13 +7,15 @@ import { PositionsListComponent } from './components/positions-list/positions-li
 import { SharedModule } from './shared/shared.module';
 import { PositionDetailsComponent } from './components/position-details/position-details.component';
 import { PairsListComponent } from './components/pairs-list/pairs-list.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PositionsListComponent,
     PositionDetailsComponent,
-    PairsListComponent
+    PairsListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
