@@ -5,8 +5,6 @@ import { Location } from '@angular/common';
 import { Position } from 'src/app/domain/position';
 import { PositionsService } from 'src/app/services/positions.service';
 
-
-
 @Component({
   selector: 'app-position-details',
   templateUrl: './position-details.component.html',
