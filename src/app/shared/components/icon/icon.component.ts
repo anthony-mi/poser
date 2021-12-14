@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-icon',
-  template: '<img src="assets/logo.png">',
-  styles: ['img { width: 32px; height: 32px; }']
+  templateUrl: './icon.component.html',
+  styleUrls: ['./icon.component.css']
 })
-export class IconComponent { }
+export class IconComponent {
+  @Input() src!: string;
+ }

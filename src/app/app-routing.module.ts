@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PairsListComponent } from './components/pairs-list/pairs-list.component';
-import { PositionDetailsComponent } from './components/position-details/position-details.component';
-import { PositionsListComponent } from './components/positions-list/positions-list.component';
+import { PairsListComponent } from './pages/pairs/pairs.component';
+import { PositionDetailsComponent } from './pages/position-details/position-details.component';
+import { PositionsListComponent } from './pages/positions/positions.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/positions', pathMatch: 'full' },
