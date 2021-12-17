@@ -1,11 +1,16 @@
 <div *ngIf="position">
     <div><span>Id: </span>{{position.id}}</div>
-    <div><span>Exchange: </span>{{position.exchange.name}}</div>
-    <div><span>Pair: </span>{{position.base.symbol}}/{{position.quote.symbol}}</div>
+    <div><span>Exchange: </span>{{exchangeName}}</div>
+    <div><span>Pair: </span>{{baseAssetSymbol}}/{{quoteAssetSymbol}}</div>
     <div><span>Opened at: </span>{{position.openedAt | date}}</div>
     <div><span>Closed at: </span>{{position.closedAt | date}}</div>
     <div><span>Open price: </span>{{position.openPrice}}</div>
     <div><span>Close price: </span>{{position.closePrice}}</div>
-    <div><span>Current price: </span>{{position.currentPrice}}</div>
+    <div>
+        <span>Current price: </span>
+        <span [ngClass]="isPriceRised ? 'text-success' : 'text-danger'">
+            {{currentPrice | number}}
+        </span>
+    </div>
 </div>
 <app-button (clicked)="goBack()">go back</app-button>

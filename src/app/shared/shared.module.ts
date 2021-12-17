@@ -7,9 +7,7 @@ import { ButtonComponent } from "./components/buttons/button/button.component";
 import { ResetButtonComponent } from "./components/buttons/reset-button/reset-button.component";
 import { SubmitButtonComponent } from "./components/buttons/submit-button/submit-button.component";
 
-import { AssetsService } from "../services/assets/assets.service";
 import { PairsService } from "../services/pairs/pairs.service";
-import { PositionsService } from "../services/positions/positions.service";
 
 @NgModule({
     declarations: [
@@ -25,9 +23,6 @@ import { PositionsService } from "../services/positions/positions.service";
         ButtonComponent,
         ResetButtonComponent,
         SubmitButtonComponent],
-    providers: [
-        AssetsService,
-        PairsService,
-        PositionsService]
+    providers: [ PairsService ]
 })
 export class SharedModule { }

@@ -1,9 +1,8 @@
 import { Shallow } from 'shallow-render';
-
-import { AppModule } from 'src/app/app.module';
+import { Router } from '@angular/router';
 
 import { HeaderComponent } from './header.component';
-import { Router } from '@angular/router';
+import { SharedModule } from '../../shared.module';
 
 describe('HeaderComponent', () => {
   let shallow: Shallow<HeaderComponent>;
@@ -12,7 +11,7 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     router = jasmine.createSpyObj('Router', ['navigate']);
     shallow =
-      new Shallow(HeaderComponent, AppModule)
+      new Shallow(HeaderComponent, SharedModule)
       .mock(Router, router);
   });
       

@@ -1,33 +1,42 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { Shallow } from 'shallow-render';
 
-import { PositionsListComponent } from './positions.component';
+import { Position } from 'src/app/domain/position.model'
+import { PositionsComponent } from './positions.component';
+import { AppModule } from 'src/app/app.module';
+import { PositionState } from 'src/app/domain/position-state.enum';
+import { PositionsTableService } from './services/positions-table.service';
 
-describe('PositionsListComponent', () => {
-  let component: PositionsListComponent;
-  let fixture: ComponentFixture<PositionsListComponent>;
+describe('PositionsComponent', () => {
+  let shallow: Shallow<PositionsComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PositionsListComponent ],
-      imports: [RouterTestingModule ]
-    })
-    .compileComponents();
+  const position = new Position({
+      id: 1,
+      exchangeId: 1,
+      baseAssetId: 1,
+      quoteAssetId: 2,
+      openedAt: new Date(2021, 10, 5, 17, 20, 30),
+      openPrice: 50_000,
+      state: PositionState.Open
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PositionsListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    let router = jasmine.createSpyObj(['navigate']);
+
+    let positionsTableService = jasmine.createSpyObj([
+      'getItems$',
+      'fetchPositions'
+    ]);
+    positionsTableService.getItems$ = jasmine.createSpy().and.returnValue(new BehaviorSubject([position]));
+    
+    shallow = new Shallow(PositionsComponent, AppModule)
+      .mock(Router, router)
+      .mock(PositionsTableService, positionsTableService);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async () => {
+    const { instance } = await shallow.render();
+    expect(instance).toBeTruthy();
   });
-
-  it('should show expected count of positions', () => {
-    const expectedCountOfPositions = 3;
-    let tbody: HTMLElement = fixture.nativeElement.querySelector('tbody');
-    expect(tbody.childElementCount).toEqual(expectedCountOfPositions);
-  })
 });

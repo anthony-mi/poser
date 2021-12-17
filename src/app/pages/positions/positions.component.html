@@ -18,19 +18,13 @@
                     <td>
                         <a [routerLink]="['/position', position.id]">{{position.id}}</a>
                     </td>
-                    <td>{{position.exchange.name}}</td>
-                    <td>{{position.base.symbol}}/{{position.quote.symbol}}</td>
+                    <td></td>
+                    <td></td>
                     <td>{{position.openedAt | date}}</td>
                     <td>{{position.closedAt | date}}</td>
                     <td>{{position.openPrice}}</td>
                     <td>{{position.closePrice}}</td>
-                    <td>{{position.currentPrice}}</td>
-                    <td>
-                        <app-button class="edit" (click)="requestEdit(position)" style="cursor: pointer;"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></app-button>
-                    </td>
-                    <td>
-                        <app-button class="delete" (click)="requestRemove(position)" style="cursor: pointer;"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></app-button>
-                    </td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
